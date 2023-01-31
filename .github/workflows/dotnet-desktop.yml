@@ -47,5 +47,5 @@ jobs:
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
-        name: RibbonWinForms
+        name: RibbonWinForms-${{ matrix.configuration }}
         path: ${{ github.workspace }}/src/System.Windows.Forms.Ribbon/bin/${{ matrix.configuration }}/*.*
