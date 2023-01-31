@@ -36,7 +36,7 @@ jobs:
       
     # 导航到工作区
     - name: Setup NuGet.exe
-      run: cd $GITHUB_WORKSPACE/src
+      run: cd ${{ github.workspace }}/src
       
     # Restore
     - name: Restore nuget
