@@ -33,17 +33,13 @@ jobs:
     # 安装 NuGet
     - name: Setup NuGet.exe
       uses: NuGet/setup-nuget@v1
-      
-    # 导航到工作区
-    - name: Setup NuGet.exe
-      run: cd ${{ github.workspace }}/src
-      
+
     # Restore
     - name: Restore nuget
-      run: nuget restore $env:Solution_Name
+      run: nuget restore ${{ github.workspace }}/src/$env:Solution_Name
       
     # build the application 
     - name: Build the application
-      run: msbuild $env:Solution_Name /p:Platform="Any CPU" /p:Configuration=$env:Configuration
+      run: msbuild ${{ github.workspace }}/src/$env:Solution_Name /p:Platform="Any CPU" /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
